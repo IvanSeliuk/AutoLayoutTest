@@ -9,14 +9,29 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
-    let kobeBrayantImage: UIImageView = {
+    var page: Page? {
+        didSet {
+            
+            guard let page = page else { return }
+            kobeBrayantImage.image = UIImage(named: page.imageName)
+            
+            let attributedText = NSMutableAttributedString(string: page.headerText, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            attributedText.append(NSAttributedString(string: page.bodyText, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24), NSAttributedString.Key.foregroundColor: UIColor.white]))
+            descriptionTextView.attributedText = attributedText
+            descriptionTextView.textAlignment = .center 
+        }
+    }
+    
+    
+    
+    private let kobeBrayantImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Kobe Bryant"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let descriptionTextView: UITextView = {
+    private let descriptionTextView: UITextView = {
         let textView = UITextView()
         let attributedText = NSMutableAttributedString(string: "Kobe Bryant (1978-2020) was one of the most accomplished and celebrated athletes of all time. Over the course of his twenty-year career―all played with the Los Angeles Lakers―he won five NBA championships, two Olympic gold medals, eighteen All-Star selections, and four All-Star Game MVP awards, among many other achievements before retiring in 2016.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         attributedText.append(NSAttributedString(string: "\n\nHe is Legend!\n R.I.P.", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24), NSAttributedString.Key.foregroundColor: UIColor.white]))
@@ -35,7 +50,6 @@ class PageCell: UICollectionViewCell {
     }
         private func setupLayout() {
             let topImageContainerView = UIView()
-      //      topImageContainerView.backgroundColor = .black
             addSubview(topImageContainerView)
             topImageContainerView.addSubview(kobeBrayantImage)
             topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,14 +69,10 @@ class PageCell: UICollectionViewCell {
                 topImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
                 topImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
                 topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
-        
             ])
         }
-     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
