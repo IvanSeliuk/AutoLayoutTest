@@ -16,6 +16,7 @@
 		6DE5189D28BB967D0097C54B /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5189C28BB967D0097C54B /* SwipingController.swift */; };
 		6DE5189F28BBA4B60097C54B /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5189E28BBA4B60097C54B /* PageCell.swift */; };
 		6DE518A128BD16010097C54B /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE518A028BD16010097C54B /* Page.swift */; };
+		6DE518A328C0EC6D0097C54B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE518A228C0EC6D0097C54B /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6DE5189C28BB967D0097C54B /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		6DE5189E28BBA4B60097C54B /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		6DE518A028BD16010097C54B /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		6DE518A228C0EC6D0097C54B /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				6DE5189C28BB967D0097C54B /* SwipingController.swift */,
 				6DE5189E28BBA4B60097C54B /* PageCell.swift */,
 				6DE518A028BD16010097C54B /* Page.swift */,
+				6DE518A228C0EC6D0097C54B /* LoadingViewController.swift */,
 			);
 			path = AutoLayoutTest;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DE518A328C0EC6D0097C54B /* LoadingViewController.swift in Sources */,
 				6D18A99828B4D6170058663E /* ViewController.swift in Sources */,
 				6DE5189F28BBA4B60097C54B /* PageCell.swift in Sources */,
 				6DE518A128BD16010097C54B /* Page.swift in Sources */,

@@ -22,8 +22,6 @@ class PageCell: UICollectionViewCell {
         }
     }
     
-    
-    
     private let kobeBrayantImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "Kobe Bryant"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
