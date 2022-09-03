@@ -168,7 +168,7 @@ class LoadingViewController: UIViewController {
             self.textLabel.alpha = 0
             self.shadowView.alpha = 1.0
         } completion: { success in
-//            guard let vc = GoogleMapViewController.getInstanceController else { return }
+//            guard let vc = SwipingController.getInstanceViewController else { return }
 //            vc.modalPresentationStyle = .fullScreen
 //            vc.modalTransitionStyle = .crossDissolve
 //            self.present(vc, animated: true, completion: nil)

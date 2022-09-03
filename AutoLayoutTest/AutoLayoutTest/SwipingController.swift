@@ -16,6 +16,13 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     Page(imageName: "Staf Curry1", headerText: "Stephen Curry II is an American professional basketball player for the Golden State Warriors. Widely regarded as one of the greatest basketball players of all time, and as the greatest shooter in NBA history, Curry is credited with revolutionizing the sport by inspiring teams and players to shoot far more three-point shots. An eight-time NBA All-Star and eight-time All-NBA selection, including four times on the first team, he has been named the NBA Most Valuable Player (MVP) twice, has won four NBA championships, and received an NBA Finals MVP Award and an NBA All-Star Game MVP Award.", bodyText: "\n\nSniper!")
     ]
     
+ 
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame.width )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonControls()
@@ -28,13 +35,13 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView.isPagingEnabled = true
     }
     
-    private let previousButton: UIButton = {
+    private lazy var previousButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("PREV", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor.mainYellow, for: .normal)
-        button.addTarget(SwipingController.self, action: #selector(handlePrev), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePrev), for: .touchUpInside)
         return button
     }()
     
@@ -45,13 +52,13 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    private let nextButton: UIButton = {
+    private lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("NEXT", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(UIColor.mainYellow, for: .normal)
-        button.addTarget(SwipingController.self, action: #selector(handleNext), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
         return button
     }()
     
@@ -63,14 +70,15 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     private lazy var pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.currentPage = 0
-        pc.numberOfPages = pages.count
-        pc.pageIndicatorTintColor = .mainYellow
-        return pc
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = pages.count
+        pageControl.pageIndicatorTintColor = .mainYellow
+        return pageControl
     }()
     
     fileprivate func setupButtonControls() {
+        
         let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
         bottomControlsStackView.distribution = .fillEqually
