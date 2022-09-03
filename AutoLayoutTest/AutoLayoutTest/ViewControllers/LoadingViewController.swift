@@ -34,6 +34,7 @@ class LoadingViewController: UIViewController {
         view.addSubview(textLabel)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.text = "Top\nNBA\nplayers"
+        textLabel.numberOfLines = 3
         textLabel.textColor = UIColor(named: "ColorText")
         textLabel.font = UIFont(name: "MarkerFelt-Wide", size: 60)
         textLabel.alpha = 0
