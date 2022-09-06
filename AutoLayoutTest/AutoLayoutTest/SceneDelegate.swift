@@ -20,11 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             self.window = UIWindow(windowScene: windowScene)
             
-            let layout = UICollectionViewFlowLayout() //чтобы сделать экземпляры коллекции(как раньше протокольные методы)
-            layout.scrollDirection = .horizontal
-            // вставляем наш swipe контроллер в window
-            let swipingViewController = SwipingController(collectionViewLayout: layout)
-            self.window?.rootViewController = swipingViewController
+//            let layout = UICollectionViewFlowLayout() //чтобы сделать экземпляры коллекции(как раньше протокольные методы)
+//            layout.scrollDirection = .horizontal
+//            // вставляем наш swipe контроллер в window
+//            let swipingViewController = SwipingController(collectionViewLayout: layout)
+            self.window?.rootViewController = LoadingViewController()
             self.window?.makeKeyAndVisible()
         }
     }

@@ -34,11 +34,12 @@ class LoadingViewController: UIViewController {
         view.addSubview(textLabel)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.text = "Top\nNBA\nplayers"
+        textLabel.textAlignment = .center
         textLabel.numberOfLines = 3
         textLabel.textColor = UIColor(named: "ColorText")
         textLabel.font = UIFont(name: "MarkerFelt-Wide", size: 60)
         textLabel.alpha = 0
-        textLabel.layer.shadowColor = UIColor.yellow.cgColor
+        textLabel.layer.shadowColor = UIColor.mainYellow.cgColor
         textLabel.layer.shadowRadius = 5
         textLabel.layer.shadowOpacity = 1
         textLabel.layer.shadowOffset = CGSize(width: 10, height: 0)
@@ -169,10 +170,14 @@ class LoadingViewController: UIViewController {
             self.textLabel.alpha = 0
             self.shadowView.alpha = 1.0
         } completion: { success in
-//            guard let vc = SwipingController.getInstanceViewController else { return }
-//            vc.modalPresentationStyle = .fullScreen
-//            vc.modalTransitionStyle = .crossDissolve
-//            self.present(vc, animated: true, completion: nil)
+            let layout = UICollectionViewFlowLayout() //чтобы сделать экземпляры коллекции(как раньше протокольные методы)
+            layout.scrollDirection = .horizontal
+            // вставляем наш swipe контроллер в window
+            let swipingViewController = SwipingController(collectionViewLayout: layout)
+            let vc = swipingViewController
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
         }
     }
 }
