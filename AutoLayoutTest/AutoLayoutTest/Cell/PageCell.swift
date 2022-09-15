@@ -31,10 +31,6 @@ class PageCell: UICollectionViewCell {
     
     private let descriptionTextView: UITextView = {
         let textView = UITextView()
-        let attributedText = NSMutableAttributedString(string: "Kobe Bryant (1978-2020) was one of the most accomplished and celebrated athletes of all time. Over the course of his twenty-year career―all played with the Los Angeles Lakers―he won five NBA championships, two Olympic gold medals, eighteen All-Star selections, and four All-Star Game MVP awards, among many other achievements before retiring in 2016.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        attributedText.append(NSAttributedString(string: "\n\nHe is Legend!\n R.I.P.", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24), NSAttributedString.Key.foregroundColor: UIColor.white]))
-        textView.attributedText = attributedText
-        textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
         textView.backgroundColor = .black
